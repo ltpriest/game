@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="3" height="3" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Woodland_ground" tilewidth="32" tileheight="32">
+  <image source="tiles/Woodland_ground.png" trans="ff00ff" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="257" source="tiles/triggers.tsx"/>
+ <layer name="regions" width="3" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFigyYAAACuAAi
+  </data>
+ </layer>
+ <layer name="output_triggers" width="3" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFUowMGAAAAj8AHA==
+  </data>
+ </layer>
+ <layer name="input4_ground" width="3" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFJQyYAAAJNAB1
+  </data>
+ </layer>
+ <layer name="input3_ground" width="3" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFxQyYAAAJIAB0
+  </data>
+ </layer>
+ <layer name="input1_ground" width="3" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFRQyYAAAJDABz
+  </data>
+ </layer>
+ <layer name="input_ground" width="3" height="3">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFhQyYAAAI+ABy
+  </data>
+ </layer>
+</map>
