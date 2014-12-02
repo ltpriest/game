@@ -16,7 +16,7 @@
  <objectgroup name="output_things" width="3" height="3">
   <object name="signpost" type="signpost" x="36" y="34" width="26" height="29">
    <properties>
-    <property name="image" value="Objest/images/signpost.png"/>
+    <property name="image" value="images/signpost.png"/>
     <property name="message" value="place a new message here"/>
    </properties>
   </object>

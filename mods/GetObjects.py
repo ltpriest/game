@@ -16,10 +16,10 @@ class Things(pygame.sprite.Sprite):
         self.y = y
         self.show = False
         self.image = pygame.image.load('images/Shroom.png')
-        print(props)
+#        print(props)
         for n in props:
              if n[0][1] =='image':
-                print(n[1][1])
+#                print(n[1][1])
                 self.image = pygame.image.load(n[1][1])
              elif n[0][1] == 'message':
                 self.message = n[1][1]

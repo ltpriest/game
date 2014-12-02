@@ -8,46 +8,64 @@
   <image source="tiles/Woodland_ground.png" trans="ff00ff" width="512" height="512"/>
   <terraintypes>
    <terrain name="basalt" tile="93"/>
+   <terrain name="water" tile="86"/>
   </terraintypes>
+  <tile id="37" terrain=",,,1"/>
+  <tile id="38" terrain=",,1,"/>
   <tile id="44" terrain="0,0,0,"/>
   <tile id="45" terrain="0,0,,0"/>
+  <tile id="53" terrain=",1,,"/>
+  <tile id="54" terrain="1,,,"/>
   <tile id="60" terrain="0,,0,0"/>
   <tile id="61" terrain=",0,0,0"/>
+  <tile id="69" terrain=",,,1"/>
+  <tile id="70" terrain=",,1,1"/>
+  <tile id="71" terrain=",,1,"/>
   <tile id="76" terrain=",,,0"/>
   <tile id="77" terrain=",,0,0"/>
   <tile id="78" terrain=",,0,"/>
+  <tile id="85" terrain=",1,,1"/>
+  <tile id="87" terrain="1,,1,"/>
   <tile id="92" terrain=",0,,0"/>
   <tile id="94" terrain="0,,0,"/>
+  <tile id="101" terrain=",1,,"/>
+  <tile id="102" terrain="1,1,,"/>
+  <tile id="103" terrain="1,,,"/>
   <tile id="108" terrain=",0,,"/>
   <tile id="109" terrain="0,0,,"/>
   <tile id="110" terrain="0,,,"/>
  </tileset>
  <layer name="triggers" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2kEKgzAQBVCvULqz1vsfs0hdBFEbYmNGeQ+CSIgEv8Og2HVE1lcYtPNenMskHpn8T79xLLmOTGI5milfuTXyq5fr8edau//UkVMj8ojFu0dbr9YbAEiMO3NDwZrJs3Av1KHPl6tRH5PHPOAqcp7r1JH6AACAu/I9Po40B5nEII8Y/L8IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3MEHIKoIxg==
+   eJzt3EkKg0AQBVDvkJ0Z7n/MLLIRyVDpatPV4T0QEWmV+hbigMtCZesBE+Ncd8syqUcm/awv5i3bkUkt2Ux5iPbIp2u5a/xvPas/x4j0iDxqce8x1nn0AQBs3N6suzSMgX/S0h/R8TCTb8/lSH9k9wEAADPxTL6O0+KdVSXyqMX3i7WoPQAAAAAAMBP/1KglU9PoWLnFZfPY9oneyetRt30mtOtZP32RJ49aetZQHn34pxwAAAAAAAAAAAAAAAAAAAAAAADM5Q6LEg61
+  </data>
+ </layer>
+ <layer name="backgrndfiller" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0yEKACAQRFE9qncQvL7BDWaLE154cWDhs7O3NgEAAAAAAAAAAAAAAAAAAADKeNyt8vt+TkM9MqyuRQotcmiRQ4cMfiKHDgAAAAAAAAAAAAAAAAAAAAAAAADAbQNAINtm
   </data>
  </layer>
  <layer name="background" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0aENgDAURVEYkBFgg4KpZQRgZb5ANA1IkqY54viX+/I4DBkAAAAAAAAalsJa2BrY1KNUtK2bl5YwhfNxNbC9R3uYP5rXfPC/46W57gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANCvG84O3BA=
+   eJzt2jsyBEEcx3GzVUo5gMAJBA7glRNxA6o2QYJEESkhCRKpxwU8EiFO4JHgBDgBWzL/Lt1lTI2aHTP0b8s3+NTuMsv2fPX0zqzlpKtrOeWuZvfmIfM70L7HirobXx8/mWea/NhLRX2Nr49fTcs3iT02fNj1TfLmyIJZEniN/01P43OOvKW+vmbWBV7ff9Tyt70Neijo8WtLPz1k0UMLPbTQQ4d7rztDDxlubkyaHYHXAo5VauihhR5a6KHF9ZhOuJ6oYstMJcwRFZx/xOcaLHquBecfcVuEBtseLYr32eIvYT6UF9bY9N9wnWhRHucFWuihhR5a6KGFHlrooYUeWuihhR5a6KGFHlr43E5LuKbomqSvz9InbpP0ddm8PnWgcT196sBn51pYp7Tw/yV6whxhPdGQXpd4T6elnfd09CnWrKCdPoM5Yo9Zmduve2bfHJhVM5fjzJvPbH9Y8PPHcsQeszLX48gcmxPfox1h+9Pk+/kyawbMiBn2t6MCY1bm9uO5uTCXJXqktx9PPuZN0zcIc2rV94g9xk7SLNGgyFzq/pW5NkMCY+wU4TizUmMTZyMpXu/xdz3CsSv2+DrNb/WYoEelHuc199ikR6UeYe29MbeZ+9nvZR/nPYcWcTqWOV8HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4iXepkQKm
   </data>
  </layer>
  <layer name="ground" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2stOE1Ecx/GZBOS2Vbk9Bs9BV8hOF4rIpkzCTTaFRE1w0zZqfBfQZ/ARiBtQYM19xa/JnPD3cGZsi7VD+118ctKmaU5/vzlnOp2uxVG0BgDAP/YpY/R9LcBcgW74nDH6ZqK7uj33fnWg7A/ll/yWIzmWEzrpiC8Zo3Oq3M/kXC7kUq7kmj66YkAG5ZEMybCMyGgB5taPHssTeSrjMiGTMlWAuQFAu8qp5YCkAPPrZWUjMT28kFmpGSXZLsCce0nWsd/I/7npIZR9hT7ulXtovwkd+yXzuGR68bOvSr0An+0h8PO3x7m/79TSXLfSjKveY/savw+3r3X78xZV3n5f97LO494nCby3fY49K587nt1+bzN2ayUr/8SMlbTPeqBju07oI5vNt5V1kJjX+2M5/nOt+XsWfTTXR7NcnjZne+4JrQn6aF41IHT+8EfbhX/uyfsORR+dkXeOmIui6JnMB36Lp4/O9mDXw0vl/0oW5LUsyhtZMr3QR+d7cFaU+2oje1mXDXkrm/SRmWe78npw3in39/IhvYf4U3bko+mDa/TbHPxr7Fb9LcexmHuIRTIdcw/xIfnBfx/+m11lvSff5HtG7vv0AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPS1G+mi3es=
+   eJzt2U1OFEEcxuHpREBwi6B4DK6CHAAU2TMIR3CrZO6CegaPwE7wg63Ih4vxZUGCZjoRMz3VzTz/5EnNqqerfskkkxpWvd7wliZnWHFXerRL01N6f10zySm91665nrc1698z+I+WpffXNU1O6b110c28y+d+9ec6alZH0GX8Pf5lPsdxnMSX+Brf4rsmjTioWW/8yLmexc84j4u4jCs9ingQMzEbc/Ew5mOh0qOExXgcS7EcT+JprLTg3eC+GLTgHQAAxsV/s3bRo130aBc92kWPdplUj7V8z/NY179oj408fzNexMvYilexrUuRHqd5/k70Yzdex17s61Hbo8k7o1+90XeIb/Qo4lFVf4dY+t2m0bPKHWKXfPK7NTGHOev38SE+1pz7kR4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDVfgO6nxSv
   </data>
  </layer>
  <objectgroup name="things" width="100" height="100">
   <object name="signpost" type="signpost" x="580" y="130" width="26" height="29">
    <properties>
-    <property name="image" value="Objects/images/signpost.png"/>
-    <property name="message" value="place a new message here"/>
+    <property name="image" value="images/signpost.png"/>
+    <property name="message" value="First sign"/>
    </properties>
   </object>
-  <object name="signpost" type="signpost" x="580" y="130" width="26" height="29">
+  <object name="signpost" type="signpost" x="1156" y="386" width="26" height="29">
    <properties>
-    <property name="image" value="Objects/images/signpost.png"/>
-    <property name="message" value="place a new message here"/>
+    <property name="image" value="images/signpost.png"/>
+    <property name="message" value="Second sign"/>
    </properties>
   </object>
  </objectgroup>

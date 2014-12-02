@@ -39,7 +39,6 @@ import mods.Enemy as Enemy
 import mods.GetObjects as GetObjects
 import mods.tmx as tmx
 
-
 mapfile = 'map_2.tmx'
 tile_width, tile_height = 32, 32
 fg = 250, 240, 230
@@ -94,8 +93,8 @@ class Game(object):
             font = pygame.font.SysFont('purisa', 20)
             ren = font.render(self.player.message,1,fg)
             screen.blit(ren,((320 - (len(self.player.message)*20)/2), 420))
-            print(len(self.player.message)*10)
-            print(320 - (len(self.player.message)*10)/2)
+#            print(len(self.player.message)*10)
+#            print(320 - (len(self.player.message)*10)/2)
 
             font = pygame.font.SysFont('unpilgi', 20)
             text = 'There are ' + str(self.num_enemy) + ' left'
