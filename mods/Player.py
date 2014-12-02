@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite):
             SpriteStripAnim(char_file, (0,h*3,h,w), 4, -1, True, frames)
         ]
 
-        
+        self.score = 0
         self.strips[0].iter()
         self.image = self.strips[0].next()
         self.rect = pygame.rect.Rect(location, self.image.get_size())

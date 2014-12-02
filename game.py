@@ -91,18 +91,21 @@ class Game(object):
             self.tilemap.draw(screen)
             
             # display signage
-            font = pygame.font.SysFont('purisa', 30)
+            font = pygame.font.SysFont('purisa', 20)
             ren = font.render(self.player.message,1,fg)
-            screen.blit(ren,(40,40))
-            
+            screen.blit(ren,((320 - (len(self.player.message)*20)/2), 420))
+            print(len(self.player.message)*10)
+            print(320 - (len(self.player.message)*10)/2)
+
             font = pygame.font.SysFont('unpilgi', 20)
             text = 'There are ' + str(self.num_enemy) + ' left'
             ren = font.render(text,1,fg)
-            # player score display
-            text2 = "Your score:> " + str(Player.Player.score)
-            ren2 = font.render(text2,1,fg)
-            screen.blit(ren2, (50,20))
             screen.blit(ren,(20,20))
+            # Print player score
+            font = pygame.font.SysFont('unpilgi', 20)
+            text = 'Your score is -> ' + str(self.player.score)
+            ren = font.render(text,1,fg)
+            screen.blit(ren,(20,40))
             
             pygame.display.flip()
             

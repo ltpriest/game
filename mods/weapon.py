@@ -44,7 +44,7 @@ class Bullet(pygame.sprite.Sprite):
         # game
         if pygame.sprite.spritecollide(self, game.enemies, True):
             game.explosion.play()
-            Player.score += 10
+            game.player.score += 10
             self.image = self.boom.next()
             game.num_enemy -=1
             # we also remove the bullet from the game or it will continue on
