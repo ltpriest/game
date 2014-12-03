@@ -14,8 +14,8 @@ class Bullet(pygame.sprite.Sprite):
         self.count_down = 0
 
         # time this bullet will live for in seconds
-        self.lifespan = 2
-        self.boom =  SpriteStripAnim('images/effects/Explode1.png', (0,0,24,24), 8, 1, True, 4)
+        self.lifespan = .75
+        self.boom =  SpriteStripAnim('images/effects/Explode1.png', (0,0,24,24), 8, 8, True, 4)
         self.boom.iter()
 
     def update(self, dt, game):

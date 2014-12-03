@@ -21,18 +21,17 @@ class Player(pygame.sprite.Sprite):
             SpriteStripAnim(char_file, (0,h*2,h,w), 4, -1, True, frames), 
             SpriteStripAnim(char_file, (0,h*3,h,w), 4, -1, True, frames)
         ]
-
-        self.score = 0
         self.strips[0].iter()
         self.image = self.strips[0].next()
         self.rect = pygame.rect.Rect(location, self.image.get_size())
-        
+
+        self.score = 0
         self.message = ' '
         # is the player dead?
         self.is_dead = False
 
         # movement in the X direction; postive is right, negative is left
-        self.direction = 'w'
+        self.direction = 's'
         # time since the player last shot
         self.gun_cooldown = 0
 

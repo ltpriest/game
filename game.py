@@ -26,12 +26,11 @@ I am going to try to get the basics into classes and use calls to some of the
 other programs I have setup, copied or outright stole.
 '''
 
-#startup stuff like imports
+#imports
 import pygame
 from pygame.locals import *
 
 import sys, os
-#import Player, weapon, Enemy, GetObjects, tmx
 
 import mods.Player as Player
 import mods.weapon as weapon
@@ -39,16 +38,19 @@ import mods.Enemy as Enemy
 import mods.GetObjects as GetObjects
 import mods.tmx as tmx
 
+# global variables
 mapfile = 'map_2.tmx'
 tile_width, tile_height = 32, 32
 fg = 250, 240, 230
 bg = 5, 5, 5
+screen_w = 640
+screen_h =480
 
 class Game(object):
     def main(self, screen):
         font = pygame.font.Font(None, 14)
         clock = pygame.time.Clock()
-       #self.screen=screen
+
 # load the map
         self.tilemap = tmx.load(mapfile, screen.get_size())
 # set up sprite layer for ???        
@@ -65,7 +67,7 @@ class Game(object):
         self.num_enemy = 0
         for enemy in self.tilemap.layers['triggers'].find('enemy'):
             self.num_enemy += 1
-            print 'so far enemies = ', self.num_enemy
+#            print 'so far enemies = ', self.num_enemy
             Enemy.Enemy((enemy.px, enemy.py), self.enemies)
 
 # GetObjects.py
@@ -82,6 +84,7 @@ class Game(object):
             dt = clock.tick(20)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    print('Wimped out did you?')
                     pygame.quit()
                     sys.exit()
             
@@ -92,9 +95,7 @@ class Game(object):
             # display signage
             font = pygame.font.SysFont('purisa', 20)
             ren = font.render(self.player.message,1,fg)
-            screen.blit(ren,((320 - (len(self.player.message)*20)/2), 420))
-#            print(len(self.player.message)*10)
-#            print(320 - (len(self.player.message)*10)/2)
+            screen.blit(ren,(( (screen_w / 2) - (len(self.player.message)*20)/2), 420))
 
             font = pygame.font.SysFont('unpilgi', 20)
             text = 'There are ' + str(self.num_enemy) + ' left'
@@ -122,6 +123,6 @@ class Game(object):
 
 if __name__ == '__main__':
     pygame.init()
-    screen = pygame.display.set_mode((640,480))
+    screen = pygame.display.set_mode((screen_w,screen_h))
     Game().main(screen)
 
