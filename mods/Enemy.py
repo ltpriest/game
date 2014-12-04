@@ -15,7 +15,7 @@ class Enemy(pygame.sprite.Sprite):
         super(Enemy, self).__init__(*groups)
         FPS = 120
         frames = FPS / 24
-        print('setting up an enemy')
+
         self.strips = [
             SpriteStripAnim(char_file, (0,h*0,h,w), 4, -1, True, frames),
             SpriteStripAnim(char_file, (0,h*1,h,w), 4, -1, True, frames),
@@ -31,7 +31,6 @@ class Enemy(pygame.sprite.Sprite):
     def update(self, dt, game):
         # move the enemy by 100 pixels per second in the movement direction
         self.rect.x += self.direction * 100 * dt
-
         # check all reverse triggers in the map to see whether this enemy has
         # touched one
         for cell in game.tilemap.layers['triggers'].collide(self.rect, 'reverse'):

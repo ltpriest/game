@@ -235,7 +235,6 @@ class Layer(object):
     @classmethod
     def fromxml(cls, tag, map):
         layer = cls(tag.attrib['name'], int(tag.attrib.get('visible', 1)), map)
-        print(layer.name)
         data = tag.find('data')
         if data is None:
             raise ValueError('layer %s does not contain <data>' % layer.name)
@@ -368,7 +367,9 @@ class SpriteLayer(pygame.sprite.AbstractGroup):
     def draw(self, screen):
         ox, oy = self.position
         w, h = self.view_w, self.view_h
+        num_sprite =0
         for sprite in self.sprites():
+            num_sprite += 1
             sx, sy = sprite.rect.topleft
             screen.blit(sprite.image, (sx-ox, sy-oy))
 

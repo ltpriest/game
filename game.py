@@ -45,11 +45,32 @@ fg = 250, 240, 230
 bg = 5, 5, 5
 screen_w = 640
 screen_h =480
+start = True
+
+#initial message
+def StartMessage(screen):
+    ''' Display the startup message'''  
+    font = pygame.font.SysFont('purisa', 20)
+    pos = 40
+    message=Game().__doc__
+    line= message.split('\n')
+    for l in line:
+        ren = font.render(l,1,fg) 
+        screen.blit(ren,( ( ( screen_w ) - ( ( len(l)/2) * 20 ) )/2, pos))
+        pos += 20
+    pygame.display.flip()
+    print(StartMessage.__doc__)
+    while (pygame.event.wait().type != KEYDOWN): pass
 
 class Game(object):
+    """Welcome to My Game!
+movement-> arrows
+shoot-> left shift
+more to come like backpack and weapon selection."""
     def main(self, screen):
+        start=True
         font = pygame.font.Font(None, 14)
-        clock = pygame.time.Clock()
+#        clock = pygame.time.Clock()
 
 # load the map
         self.tilemap = tmx.load(mapfile, screen.get_size())
@@ -67,7 +88,6 @@ class Game(object):
         self.num_enemy = 0
         for enemy in self.tilemap.layers['triggers'].find('enemy'):
             self.num_enemy += 1
-#            print 'so far enemies = ', self.num_enemy
             Enemy.Enemy((enemy.px, enemy.py), self.enemies)
 
 # GetObjects.py
@@ -79,19 +99,25 @@ class Game(object):
         self.shoot = pygame.mixer.Sound('Sounds/shoot.wav')
         self.explosion = pygame.mixer.Sound('Sounds/explosion.wav')
 
-# main game loop            
+        clock = pygame.time.Clock()
+# main game loop
+       
         while 1:
             dt = clock.tick(20)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     print('Wimped out did you?')
                     pygame.quit()
-                    sys.exit()
-            
+                    sys.exit()    
+                           
             self.player.update(dt/1000., self)
             self.tilemap.update(dt/1000., self)
             self.tilemap.draw(screen)
-            
+            if start == True:
+                StartMessage(screen)
+                start = False
+                pygame.display.flip()
+                clock = pygame.time.Clock()# restart the clock so the sprites do not jump
             # display signage
             font = pygame.font.SysFont('purisa', 20)
             ren = font.render(self.player.message,1,fg)
@@ -116,9 +142,9 @@ class Game(object):
                 sys.exit()
 
             if self.num_enemy == 0:
+#            if True:
                 for enemy in self.tilemap.layers['triggers'].find('enemy'):
                     self.num_enemy += 1
-                    print 'so far enemies = ', self.num_enemy
                     Enemy.Enemy((enemy.px, enemy.py), self.enemies)
 
 if __name__ == '__main__':

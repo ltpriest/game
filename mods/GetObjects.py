@@ -9,17 +9,15 @@ bg = 5, 5, 5
 objects in the layer Hopefully the sprites are global and I can just add them I
 will try the trick of calling self. calling from tmx or pygame_5'''
 class Things(pygame.sprite.Sprite):
+    """Things going wrong"""
     def __init__(self, x, y, props, *groups):
         super(Things, self).__init__(*groups)
-        #pygame.sprite.Sprite.__init__(self)
         self.x = x
         self.y = y
         self.show = False
         self.image = pygame.image.load('images/Shroom.png')
-#        print(props)
         for n in props:
              if n[0][1] =='image':
-#                print(n[1][1])
                 self.image = pygame.image.load(n[1][1])
              elif n[0][1] == 'message':
                 self.message = n[1][1]
