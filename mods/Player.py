@@ -3,14 +3,16 @@ import pygame, tmx, weapon
 from pygame.locals import *
 import spritesheet
 from sprite_strip_anim import SpriteStripAnim
-h = 64 # x value
-w = 64 # y value
-char_file = 'images/character/bahamut.png'
+h, w  = 32, 32 # x value , y value
+#w = 32 # y value
+# Old file char_file = 'images/character/bahamut.png' # requires 64 x 64
+char_file = 'images/character/ch003.png'
+
 fg = 250, 240, 230
 bg = 5, 5, 5
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, location, *groups):
+    def __init__(self, location , *groups):
         super(Player, self).__init__(*groups)
         #surface = pygame.display.set_mode((200,200))
         FPS = 120
@@ -18,13 +20,15 @@ class Player(pygame.sprite.Sprite):
         self.strips = [
             SpriteStripAnim(char_file, (0,h*0,h,w), 4, -1, True, frames),
             SpriteStripAnim(char_file, (0,h*1,h,w), 4, -1, True, frames),
-            SpriteStripAnim(char_file, (0,h*2,h,w), 4, -1, True, frames), 
+            SpriteStripAnim(char_file, (0,h*2,h,w), 4, -1, True, frames),
             SpriteStripAnim(char_file, (0,h*3,h,w), 4, -1, True, frames)
         ]
+#        self.strips[0].iter() # swap the zero here for the three in Enemy
         self.strips[0].iter()
         self.image = self.strips[0].next()
         self.rect = pygame.rect.Rect(location, self.image.get_size())
-
+        self.name = "Harcort"
+        
         self.score = 0
         self.message = ' '
         # is the player dead?
@@ -48,30 +52,30 @@ class Player(pygame.sprite.Sprite):
         elif key[pygame.K_LEFT]:
             self.rect.x -= 100 * dt
             #self.image = self.left_image
-            
-            self.image = self.strips[1].next()
+
+            self.image = self.strips[2].next()
             self.direction = 'w'
         elif key[pygame.K_RIGHT]:
             self.rect.x += 100 * dt
             #self.image = self.right_image
-            
-            self.image = self.strips[2].next()
+
+            self.image = self.strips[3].next()
             self.direction = 'e'
         elif key[pygame.K_UP]:
             self.rect.y -= 100 * dt
-            
-            self.image = self.strips[3].next()
+
+            self.image = self.strips[1].next()
             self.direction = 'n'
         elif key[pygame.K_DOWN]:
             self.direction = 's'
             self.rect.y += 100 * dt
-            
+
             self.image = self.strips[0].next()
 
         # handle the player shooting key
         elif key[pygame.K_LSHIFT] and not self.gun_cooldown:
             game.shoot.play()
- 
+
             # create a bullet at an appropriate position (the side of the player
             # sprite) and travelling in the correct direction
             if self.direction == 'e':
@@ -82,7 +86,7 @@ class Player(pygame.sprite.Sprite):
                 weapon.Bullet(self.rect.midtop, 'n', game.sprites)
             else:
                 weapon.Bullet(self.rect.midbottom, 's', game.sprites)
-                
+
             # set the amount of time until the player can shoot again
             self.gun_cooldown = 1
         # decrement the time since the player last shot to a minimum of 0 (so
@@ -120,4 +124,4 @@ class Player(pygame.sprite.Sprite):
                 sign.show = False
 
         game.tilemap.set_focus(new.x, new.y)
- 
+

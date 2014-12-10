@@ -2,9 +2,10 @@ import pygame, os, sys, tmx
 from pygame.locals import *
 import spritesheet
 from sprite_strip_anim import SpriteStripAnim
-h = 32 # x value
-w = 32 # y value
-char_file = 'images/character/ch003.png'
+h = 64 # x value
+w = 64 # y value
+# Old file char_file = 'images/character/ch003.png'
+char_file = 'images/character/bahamut.png'
 #
 # Our enemies are quite dumb, just moving from side to side between "reverse"
 # map triggers. It's game over if they hit the player.
@@ -22,8 +23,8 @@ class Enemy(pygame.sprite.Sprite):
             SpriteStripAnim(char_file, (0,h*2,h,w), 4, -1, True, frames), 
             SpriteStripAnim(char_file, (0,h*3,h,w), 4, -1, True, frames)
         ]
-        self.strips[3].iter()
-        self.image = self.strips[3].next()
+        self.strips[2].iter()
+        self.image = self.strips[2].next()
         self.rect = pygame.rect.Rect(location, self.image.get_size())
         # movement in the X direction; postive is right, negative is left
         self.direction = 1
@@ -38,11 +39,11 @@ class Enemy(pygame.sprite.Sprite):
             # collision so it doesn't collide again immediately next update
             if self.direction > 0:
                 self.rect.right = cell.left
-                self.image = self.strips[2].next()
+                self.image = self.strips[1].next()
                 
             else:
                 self.rect.left = cell.right
-                self.image = self.strips[3].next()
+                self.image = self.strips[2].next()
             self.direction *= -1
             break
 

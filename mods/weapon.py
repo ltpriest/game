@@ -2,19 +2,30 @@ import pygame
 import os, sys
 import spritesheet
 from sprite_strip_anim import SpriteStripAnim
-
+h, w = 13, 13
+weapon_image = 'images/effects/Explode2ltp.png'
 class Bullet(pygame.sprite.Sprite):
-    image = pygame.image.load('images/bullet.png')
+#    image = pygame.image.load('images/bullet.png')
+#    image = pygame.image.load('images/explode2.png')
     def __init__(self, location, direction, *groups):
         super(Bullet, self).__init__(*groups)
-        self.rect = pygame.rect.Rect(location, self.image.get_size())
+#        self.rect = pygame.rect.Rect(location, self.image.get_size())
         # movement in the X direction; postive is right, negative is left;
         # inherited from the player (shooter)
         self.direction = direction
         self.count_down = 0
-
+# trying to animate a shot
+        FPS = 120
+        frames = FPS / 24
+        self.strips = [
+            SpriteStripAnim(weapon_image, (0,h*0,h,w), 7, -1, True, frames)
+        ]
+#        self.strips[0].iter() # swap the zero here for the three in Enemy
+        self.strips[0].iter()
+        self.image = self.strips[0].next()
+        self.rect = pygame.rect.Rect(location, self.image.get_size())
         # time this bullet will live for in seconds
-        self.lifespan = .75
+        self.lifespan = .9
         self.boom =  SpriteStripAnim('images/effects/Explode1.png', (0,0,24,24), 8, 8, True, 4)
         self.boom.iter()
 
@@ -32,12 +43,16 @@ class Bullet(pygame.sprite.Sprite):
         # move the Bullet by 400 pixels per second in the movement direction
         if self.direction == 'w':
             self.rect.x += -1 * 400 * dt
+            self.image = self.strips[0].next()
         elif self.direction == 'e':
             self.rect.x += 1 * 400 * dt
+            self.image = self.strips[0].next()
         elif self.direction == 'n':
             self.rect.y += -1 * 400 * dt
+            self.image = self.strips[0].next()
         elif self.direction == 's':
             self.rect.y += 1 * 400 * dt
+            self.image = self.strips[0].next()
 
         # check for collision with any of the enemy sprites; we pass the "kill
         # if collided" flag as True so any collided enemies are removed from the
